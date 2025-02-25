@@ -11,7 +11,7 @@ A Spring Boot-based system for managing employee leaves, timesheets, permissions
 
 ## 🛠️ Tech Stack
 - **Backend**: Java, Spring Boot, Spring Security, JWT
-- **Database**: postgresql (او علي حسب ما بقي لسه)
+- **Database**: postgresql 
 - **Tools**: Maven, Swagger (API docs)
 
 ## 🚀 Quick Start
