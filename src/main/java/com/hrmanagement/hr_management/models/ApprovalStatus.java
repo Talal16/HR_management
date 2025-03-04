@@ -1,4 +1,4 @@
-package com.hrmanagement.hr_management.model;
+package com.hrmanagement.hr_management.models;
 
 public enum ApprovalStatus {
     PENDING,

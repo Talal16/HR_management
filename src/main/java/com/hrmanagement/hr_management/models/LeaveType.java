@@ -1,4 +1,5 @@
-package com.hrmanagement.hr_management.model;
+package com.hrmanagement.hr_management.models;
+
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -8,8 +9,8 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Table(name = "departments")
-public class Department {
+@Table(name = "leave_types")
+public class LeaveType {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -17,7 +18,6 @@ public class Department {
     @Column(nullable = false, unique = true)
     private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "manager_id")
-    private User manager;
+    @Column(nullable = false)
+    private Integer defaultDays;
 }

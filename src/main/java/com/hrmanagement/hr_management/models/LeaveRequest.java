@@ -1,7 +1,8 @@
-package com.hrmanagement.hr_management.model;
+package com.hrmanagement.hr_management.models;
 
 import jakarta.persistence.*;
 import lombok.*;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -11,32 +12,25 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Table(name = "users")
-public class User {
+@Table(name = "leave_requests")
+public class LeaveRequest {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, unique = true)
-    private String email;
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
+
+    @ManyToOne
+    @JoinColumn(name = "leave_type_id", nullable = false)
+    private LeaveType leaveType;
 
     @Column(nullable = false)
-    private String password;
-
-    @ManyToOne
-    @JoinColumn(name = "role_id", nullable = false)
-    private Role role;
-
-    @ManyToOne
-    @JoinColumn(name = "department_id")
-    private Department department;
-
-    @ManyToOne
-    @JoinColumn(name = "manager_id")
-    private User manager;
+    private LocalDate startDate;
 
     @Column(nullable = false)
-    private LocalDate hireDate;
+    private LocalDate endDate;
 
     @Column(nullable = false)
     private LocalDateTime createdAt = LocalDateTime.now();
