@@ -1,13 +1,13 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/springdb
+    url: jdbc:postgresql://localhost:5432/hr_management_v01  # ✅ Set the correct database name
     username: springuser
     password: springpassword
     driver-class-name: org.postgresql.Driver
 
   jpa:
     hibernate:
-      ddl-auto: none  # ❌ Disable Hibernate auto schema updates
+      ddl-auto: none  # ❌ Prevent Hibernate from auto-updating schema
     show-sql: true
     properties:
       hibernate:
@@ -15,4 +15,5 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
 
   liquibase:
-    change-log: classpath:db/changelog/db.changelog-master.yaml  # 🔥 Define your Liquibase changelog file
+    enabled: true  # ✅ Enable Liquibase
+    change-log: classpath:db/changelog/db.changelog-master.yaml  # 🔥 Path to the main changelog db.changelog-master.yaml
