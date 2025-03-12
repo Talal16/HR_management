@@ -1,6 +1,6 @@
 package com.hrmanagement.hr_management.dto;
 
-import com.hrmanagement.hr_management.models.ApprovalStatus;
+import com.hrmanagement.hr_management.enums.ApprovalStatus;
 
 
 import java.time.LocalDateTime;

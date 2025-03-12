@@ -1,6 +1,6 @@
 package com.hrmanagement.hr_management.dto;
 //ckage com.hrmanagement.hr_management.models.AprovalStatus;
-import com.hrmanagement.hr_management.models.ApprovalStatus;
+import com.hrmanagement.hr_management.enums.ApprovalStatus;
 import lombok.Data;
 
 import java.time.LocalDateTime;

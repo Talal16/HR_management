@@ -12,14 +12,14 @@ import java.util.List;
 @RequiredArgsConstructor
 @Service
 public class UserService implements UserServiceIn     {
-    @Autowired
-    private  UserRepository userRepository;
-    private  PasswordEncoder passwordEncoder;
+    //@Autowired
+    //private  UserRepository userRepository;
+    //private  PasswordEncoder passwordEncoder;
 
     @Override
     public User getUserById(Long id) {
         try{
-            return userRepository.findById(id).get();
+            System.out.println("User found");
         }
         catch (Exception e){
             System.out.println("User not found. error:"+e.getMessage());
@@ -33,8 +33,8 @@ public class UserService implements UserServiceIn     {
         try{
 
             //requestUser.setPassword(passwordEncoder.encode(requestUser.getPassword())); // change to hash
-
-            return userRepository.save(requestUser);
+            System.out.println("User created");
+           // return userRepository.save(requestUser);
         }
         catch (Exception e){
             System.out.println("User not created. error:"+e.getMessage());

@@ -1,14 +1,5 @@
 package com.hrmanagement.hr_management.config;
 
-import com.hrmanagement.hr_management.models.*;
-import com.hrmanagement.hr_management.repositories.*;
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.stereotype.Component;
-
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.List;
-import com.hrmanagement.hr_management.models.ApprovalStatus;
 //@Component
 public class DataInitializer  {
     /*

@@ -8,9 +8,7 @@ public interface UserServiceIn {
     User updateUser(Long id, User requestUser);  //why optional?
     User getUserByEmail(String email);
     User getUserById(Long id);
-
     void deleteUser(Long id);
-
     List <User> getAllUsers();
 
 
