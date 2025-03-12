@@ -4,7 +4,7 @@ import com.hrmanagement.hr_management.dto.DepartmentDto;
 import com.hrmanagement.hr_management.models.Department;
 import org.mapstruct.Mapper;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface DepartmentMapper {
 
     DepartmentDto toDto(Department departmentEntity);

@@ -6,7 +6,7 @@ import com.hrmanagement.hr_management.models.LeaveType;
 import com.hrmanagement.hr_management.models.User;
 import org.mapstruct.Mapper;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface LeaveTypeMapper {
 
     LeaveTypeDto toDto(LeaveType leaveTypeEntity);

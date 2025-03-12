@@ -5,7 +5,7 @@ import com.hrmanagement.hr_management.models.Project;
 import org.mapstruct.Mapper;
 import org.springframework.security.core.parameters.P;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface ProjectMapper {
     ProjectDto toDto(Project projectEntity);
     Project toEntity(ProjectDto projectDto);

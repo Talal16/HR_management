@@ -4,7 +4,7 @@ import com.hrmanagement.hr_management.dto.PermissionDto;
 import com.hrmanagement.hr_management.models.Permission;
 import org.mapstruct.Mapper;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface PermissionMapper {
 
 
