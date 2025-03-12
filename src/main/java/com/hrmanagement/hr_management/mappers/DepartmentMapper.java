@@ -7,8 +7,8 @@ import org.mapstruct.Mapper;
 @Mapper
 public interface DepartmentMapper {
 
-    DepartmentDto map(Department departmentEntity);
+    DepartmentDto toDto(Department departmentEntity);
 
-    Department unmap(DepartmentDto departmentDto);
+    Department toEntity(DepartmentDto departmentDto);
 }
 

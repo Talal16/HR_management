@@ -9,14 +9,9 @@ import org.mapstruct.Mapper;
 @Mapper
 public interface LeaveTypeMapper {
 
-    LeaveTypeDto map(LeaveType leaveTypeEntity);
+    LeaveTypeDto toDto(LeaveType leaveTypeEntity);
 
-    LeaveType unmap(LeaveTypeDto leaveTypeDto);
+    LeaveType toEntity(LeaveTypeDto leaveTypeDto);
 
-    @Mapper
-    interface UserMapper {
 
-        UserDto toEntity(User userEntity);
-        User unmap(UserDto userDto) ;
-    }
 }

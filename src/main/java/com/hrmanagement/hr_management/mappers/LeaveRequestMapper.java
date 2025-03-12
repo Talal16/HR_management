@@ -6,7 +6,7 @@ import org.mapstruct.Mapper;
 
 @Mapper
 public interface LeaveRequestMapper {
-    LeaveRequestDto map(LeaveRequest leaveRequest);
+    LeaveRequestDto toDto(LeaveRequest leaveRequest);
 
-    LeaveRequest unmap(LeaveRequestDto leaveRequestDto);
+    LeaveRequest toEntity(LeaveRequestDto leaveRequestDto);
 }

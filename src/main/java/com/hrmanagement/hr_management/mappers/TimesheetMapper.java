@@ -7,7 +7,7 @@ import org.mapstruct.Mapper;
 @Mapper
 public interface TimesheetMapper {
 
-    TimesheetDto map(Timesheet timesheet);
+    TimesheetDto toDto(Timesheet timesheet);
 
-    Timesheet unmap(TimesheetDto timesheetDto);
+    Timesheet toEntity(TimesheetDto timesheetDto);
  }

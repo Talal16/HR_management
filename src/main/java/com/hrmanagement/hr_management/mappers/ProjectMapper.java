@@ -7,6 +7,6 @@ import org.springframework.security.core.parameters.P;
 
 @Mapper
 public interface ProjectMapper {
-    ProjectDto map(Project projectEntity);
-    Project unmap(ProjectDto projectDto);
+    ProjectDto toDto(Project projectEntity);
+    Project toEntity(ProjectDto projectDto);
 }

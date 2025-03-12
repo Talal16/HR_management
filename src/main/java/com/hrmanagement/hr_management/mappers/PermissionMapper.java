@@ -8,6 +8,6 @@ import org.mapstruct.Mapper;
 public interface PermissionMapper {
 
 
-    PermissionDto map(Permission permissionEntity);
-    Permission unmap(PermissionDto permissionDto);
+    PermissionDto toDto(Permission permissionEntity);
+    Permission toEntity(PermissionDto permissionDto);
 }

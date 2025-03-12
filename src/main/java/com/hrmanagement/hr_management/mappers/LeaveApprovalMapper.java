@@ -7,9 +7,9 @@ import org.mapstruct.Mapper;
 @Mapper
 public interface LeaveApprovalMapper {
 
-    LeaveAprovalDto map(LeaveApproval leaveApproval);
+    LeaveAprovalDto toDto(LeaveApproval leaveApproval);
 
 
-    LeaveApproval unmap(LeaveAprovalDto leaveApprovalDto);
+    LeaveApproval toEntity(LeaveAprovalDto leaveApprovalDto);
 
 }
