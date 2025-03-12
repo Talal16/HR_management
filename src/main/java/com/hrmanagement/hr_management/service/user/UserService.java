@@ -1,9 +1,6 @@
-package com.hrmanagement.hr_management.services.user;
+package com.hrmanagement.hr_management.service.user;
 
 import lombok.RequiredArgsConstructor;
-import com.hrmanagement.hr_management.repositories.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import com.hrmanagement.hr_management.models.User;
 

@@ -1,4 +1,4 @@
-package com.hrmanagement.hr_management.services.user;
+package com.hrmanagement.hr_management.service.user;
 import com.hrmanagement.hr_management.models.User;
 
 import java.util.List;
