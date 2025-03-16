@@ -2,10 +2,12 @@ package com.hrmanagement.hr_management.dto;
 
 
 import lombok.Data;
+import lombok.Getter;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+@Getter
 @Data
 public class UserDto {
     private Long id;

@@ -9,7 +9,6 @@ public class LeaveRequestDto {
 
     private UserDto user;
 
-
     private LeaveTypeDto leaveType;
 
     private LocalDate startDate;

@@ -5,6 +5,7 @@ import com.hrmanagement.hr_management.dto.RoleDto;
 import com.hrmanagement.hr_management.models.Role;
 import org.mapstruct.Mapper;
 
+
 @Mapper(componentModel = "spring")
 public interface RoleMapper {
 

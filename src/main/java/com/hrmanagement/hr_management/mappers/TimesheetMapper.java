@@ -4,7 +4,7 @@ import com.hrmanagement.hr_management.dto.TimesheetDto;
 import com.hrmanagement.hr_management.models.Timesheet;
 import org.mapstruct.Mapper;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", uses = {DepartmentMapper.class})
 public interface TimesheetMapper {
 
     TimesheetDto toDto(Timesheet timesheet);

@@ -8,7 +8,7 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @Service
-public class UserService implements UserServiceIn     {
+public class UserService0 implements UserServiceIn     {
     //@Autowired
     //private  UserRepository userRepository;
     //private  PasswordEncoder passwordEncoder;

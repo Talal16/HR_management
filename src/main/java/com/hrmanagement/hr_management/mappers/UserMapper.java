@@ -6,7 +6,7 @@ import com.hrmanagement.hr_management.models.User;
 import org.mapstruct.Mapper;
 
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring",uses = {DepartmentMapper.class})
 public interface UserMapper {
 
     UserDto toDto(User userEntity);

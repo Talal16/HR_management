@@ -18,7 +18,7 @@ public class Timesheet {
 
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @Column(name = "project_id", nullable = false)
+    @JoinColumn(name = "project_id", nullable = false)
     private Project project;
 
 
