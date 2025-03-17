@@ -24,16 +24,16 @@ public class User {
    @Column(name = "password")
     private String password;
 
-    @ManyToOne(fetch = FetchType.LAZY )
-    @JoinColumn(name = "role_id", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY, optional = true )
+    @JoinColumn(name = "role_id", nullable = true)
     private Role role;
 
-    @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name = "department_id")
+    @ManyToOne(fetch=FetchType.LAZY,  optional = true)
+    @JoinColumn(name = "department_id", nullable = true)
     private Department department;
 
-    @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name = "manager_id")
+    @ManyToOne(fetch=FetchType.LAZY,  optional = true)
+    @JoinColumn(name = "manager_id", nullable = true)
     private User manager;
 
     @Column(name = "hire_date")

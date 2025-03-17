@@ -10,6 +10,7 @@ import com.hrmanagement.hr_management.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,6 +32,13 @@ public class UserService {
         // if user exists, throw exception
 
         User user = userMapper.toEntity(userDto);
+        user.setCreatedAt(LocalDateTime.now());
+        user.setUpdatedAt(LocalDateTime.now());
+
+        if (user.getPassword() == null || user.getPassword().isEmpty()) {
+           user.setPassword("P@ssw0rd");
+        }
+
         return userMapper.toDto(userRepository.save(user));
     }
 

@@ -15,7 +15,11 @@ public class Department {
     @Column(name = "name",nullable = false )
     private String name;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "manager_id")
+    @Column(name = "description")
+    private String description;
+
+
+    @ManyToOne(fetch = FetchType.LAZY,optional = true )
+    @JoinColumn(name = "manager_id", nullable = true)
     private User manager;
 }
