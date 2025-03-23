@@ -33,8 +33,9 @@ public class RoleService {
 
 
     // update role
-    public RoleDto updateRole(RoleDto roleDto) {
-        Role role = roleRepository.findById(roleDto.getId()).orElse(null);
+    public RoleDto updateRole(RoleDto roleDto, Long id) {
+
+        Role role = roleRepository.findById(id).orElse(null);
         if (role == null ) {
             return null;
         }
@@ -42,10 +43,6 @@ public class RoleService {
 
         return roleMapper.toDto(roleRepository.save(role));
     }
-
-
-
-
 
 
 

@@ -1,4 +1,5 @@
 package com.hrmanagement.hr_management.models;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -19,7 +20,6 @@ public class Department {
     private String description;
 
 
-    @ManyToOne(fetch = FetchType.LAZY,optional = true )
     @JoinColumn(name = "manager_id", nullable = true)
-    private User manager;
+    private Long manager;
 }

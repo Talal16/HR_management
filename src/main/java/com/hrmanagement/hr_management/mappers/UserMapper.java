@@ -4,7 +4,9 @@ import com.hrmanagement.hr_management.dto.UserDto;
 import com.hrmanagement.hr_management.models.User;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
+import org.springframework.context.annotation.Lazy;
 
+@Lazy
 @Mapper(componentModel = "spring", uses = {RoleMapper.class, DepartmentMapper.class, UserMapper.class})
 public interface UserMapper {
 

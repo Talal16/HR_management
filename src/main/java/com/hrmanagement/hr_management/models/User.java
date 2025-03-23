@@ -1,5 +1,6 @@
 package com.hrmanagement.hr_management.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDate;
@@ -28,6 +29,7 @@ public class User {
     @JoinColumn(name = "role_id", nullable = true)
     private Role role;
 
+    @JsonIgnore
     @ManyToOne(fetch=FetchType.LAZY,  optional = true)
     @JoinColumn(name = "department_id", nullable = true)
     private Department department;

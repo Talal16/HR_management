@@ -39,7 +39,11 @@ public class DepartmentService {
 
     // create a department
     public DepartmentDto createDepartment(DepartmentDto departmentDto) {
+        System.out.println("CREATE DEPARTMENT DTO :____________"+departmentDto);
+
         Department department = departmentMapper.toEntity(departmentDto);
+        System.out.println("CREATE DEPARTMENT entitiy :____________"+ department);
+
         return departmentMapper.toDto(departmentRepository.save(department));
     }
 
@@ -57,7 +61,7 @@ public class DepartmentService {
         Department department = departmentRepository.findById(id).orElseThrow(() -> new RuntimeException("Department not found"));
         department.setName(departmentDto.getName());
         department.setDescription(departmentDto.getDescription());
-        department.setManager(userMapper.toEntity(departmentDto.getManager()));
+        department.setManager(departmentDto.getManager());
         return departmentMapper.toDto(departmentRepository.save(department));
 
     }

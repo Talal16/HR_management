@@ -17,16 +17,13 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @Operation(summary = "get all users")
-    @GetMapping
-    public List<UserDto> getAllUsers() {
-        return userService.getAllUsers();
-    }
 
     @Operation(summary=" create a new user")
     @PostMapping
     public UserDto createUser(@Valid @RequestBody UserDto userDto) {
         System.out.println("CREATE USER YA"+userDto);
+
+
 
         return userService.createUser(userDto);
     }
@@ -48,6 +45,13 @@ public class UserController {
     @DeleteMapping("/{id}")
     public void deleteUser(@PathVariable long id) {
         userService.deleteUser(id);
+    }
+
+
+    @Operation(summary = "get all users")
+    @GetMapping
+    public List<UserDto> getAllUsers() {
+        return userService.getAllUsers();
     }
 
 
