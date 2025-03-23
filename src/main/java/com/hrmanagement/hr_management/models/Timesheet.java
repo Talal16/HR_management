@@ -21,9 +21,13 @@ public class Timesheet {
     @JoinColumn(name = "project_id", nullable = false)
     private Project project;
 
+    @Column(name = "start_time")
+    private LocalDateTime startTime;
 
-    @Column(name = "hours_worked")
-    private int hoursWorked;
+    @Column(name = "end_time")
+    private LocalDateTime endTime;
+
+
 
     @Column(name = "date")
     private LocalDateTime date;
