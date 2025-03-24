@@ -6,8 +6,7 @@ import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring", uses = {DepartmentMapper.class})
 public interface TimesheetMapper {
+    public TimesheetDto toDto (Timesheet timesheetEntity);
+    public Timesheet toEntity (TimesheetDto timesheetDto);
 
-    TimesheetDto toDto(Timesheet timesheet);
-
-    Timesheet toEntity(TimesheetDto timesheetDto);
  }
