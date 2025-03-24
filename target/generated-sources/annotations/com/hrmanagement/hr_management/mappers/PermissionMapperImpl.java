@@ -33,6 +33,8 @@ public class PermissionMapperImpl implements PermissionMapper {
         permissionDto.setEndTime( permissionEntity.getEndTime() );
         permissionDto.setCreatedAt( permissionEntity.getCreatedAt() );
         permissionDto.setUpdatedAt( permissionEntity.getUpdatedAt() );
+        permissionDto.setStutas(permissionEntity.getStatus());
+        permissionDto.setName(permissionEntity.getName());
 
         return permissionDto;
     }
@@ -51,6 +53,8 @@ public class PermissionMapperImpl implements PermissionMapper {
         permission.setEndTime( permissionDto.getEndTime() );
         permission.setCreatedAt( permissionDto.getCreatedAt() );
         permission.setUpdatedAt( permissionDto.getUpdatedAt() );
+        permission.setStatus( permissionDto.getStutas() );
+        permission.setName( permissionDto.getName() );
 
         return permission;
     }

@@ -27,6 +27,7 @@ public class PermissionService {
         Permission permission = permissionMapper.toEntity(permissionDto);
         permission.setCreatedAt(LocalDateTime.now());
         permission.setUpdatedAt(LocalDateTime.now());
+        
         return   permissionMapper.toDto(permissionRepository.save(permission));
     }
 
@@ -38,6 +39,7 @@ public class PermissionService {
         permission.setEndTime(permissionDto.getEndTime());
         permission.setStatus(permission.getStatus());
         permission.setUpdatedAt(LocalDateTime.now());
+
         return permissionMapper.toDto(permissionRepository.save(permission));
     }
 
@@ -56,6 +58,7 @@ public class PermissionService {
         List<Permission> permissions = permissionRepository.findAll();
         List<PermissionDto> permissionDtos = new ArrayList<>();
         permissions.forEach(permission -> {
+            System.out.println("start get all"+permission+"end");
             permissionDtos.add(permissionMapper.toDto(permission));
         });
         return permissionDtos;

@@ -25,7 +25,7 @@ public class PermissionController {
 
     //get Permission by id
     @Operation(summary = "Get Permission by ID")
-    @GetMapping("{/id}")
+    @GetMapping("/{id}")
     public PermissionDto getPermissionById(@PathVariable Long id) {
         return permissionService.getPermission(id);
     }
