@@ -10,6 +10,7 @@ import com.hrmanagement.hr_management.repositories.TimesheetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,6 +28,8 @@ public class TimesheetService {
 
     public TimesheetDto createTimesheet(TimesheetDto timesheetDto) {
         Timesheet timesheet = timesheetMapper.toEntity(timesheetDto);
+        timesheet.setCreatedAt(LocalDateTime.now());
+        timesheet.setUpdatedAt(LocalDateTime.now());
 
         return timesheetMapper.toDto( timesheetRepository.save(timesheet));
     }
@@ -45,7 +48,7 @@ public class TimesheetService {
         timesheet.setProject(projectMapper.toEntity(timesheetDto.getProject()));
         timesheet.setStartTime(timesheetDto.getStartTime());
         timesheet.setEndTime(timesheetDto.getEndTime());
-
+        timesheet.setUpdatedAt(LocalDateTime.now());
         return timesheetMapper.toDto(timesheetRepository.save(timesheet));
     }
 

@@ -5,7 +5,6 @@ import com.hrmanagement.hr_management.dto.TimesheetDto;
 import com.hrmanagement.hr_management.services.TimesheetService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import jakarta.persistence.Table;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -52,10 +51,4 @@ public class TimesheetController {
     public List<TimesheetDto> getAllTimesheets() {
         return timesheetService.getAllTimesheets();
     }
-
-
-
-
-
-
 }
