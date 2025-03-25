@@ -25,6 +25,9 @@ public class LeaveApproval {
     @Column(name = "status", nullable = false)
     private ApprovalStatus status = ApprovalStatus.PENDING;
 
-    @Column(name = "approval_timestamp", nullable = false)
-    private LocalDateTime approvalTimestamp = LocalDateTime.now();
+    @Column(name = "created_at", nullable = false)
+    private LocalDateTime createAt;
+
+    @Column(name = "approved_at")
+    private LocalDateTime approvedAt;
 }

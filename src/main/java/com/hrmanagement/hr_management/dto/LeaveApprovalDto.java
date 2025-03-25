@@ -1,11 +1,13 @@
 package com.hrmanagement.hr_management.dto;
 
 import com.hrmanagement.hr_management.enums.ApprovalStatus;
+import lombok.Data;
 
 
 import java.time.LocalDateTime;
 
-public class LeaveAprovalDto {
+@Data
+public class LeaveApprovalDto {
     private Long id;
 
     private LeaveRequestDto leaveRequest;
@@ -14,5 +16,7 @@ public class LeaveAprovalDto {
 
     private ApprovalStatus status = ApprovalStatus.PENDING;
 
-    private LocalDateTime approvalTimestamp = LocalDateTime.now();
+    private LocalDateTime createAt = LocalDateTime.now();
+
+    private LocalDateTime approvedAt;
 }
