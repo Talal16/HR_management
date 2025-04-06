@@ -52,6 +52,7 @@ public class UserService {
         }
         user.setName(userDto.getName());
         user.setEmail(userDto.getEmail());
+        user.setPhoneNumber(userDto.getPhoneNumber());
         user.setRole(roleMapper.toEntity(userDto.getRole()));
         user.setDepartment(departmentMapper.toEntity(userDto.getDepartment()));
         user.setManager(userMapper.toEntity(userDto.getManager()));

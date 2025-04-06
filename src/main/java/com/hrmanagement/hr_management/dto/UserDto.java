@@ -14,6 +14,7 @@ public class UserDto {
     private String name;
     private String password;
     private String email;
+    private String phoneNumber;
     private RoleDto role;
     private DepartmentDto department;
     private UserDto manager;

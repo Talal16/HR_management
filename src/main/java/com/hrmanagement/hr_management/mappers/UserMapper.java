@@ -13,10 +13,13 @@ public interface UserMapper {
     @Mapping(source = "role", target = "role")
     @Mapping(source = "department", target = "department")
     @Mapping(source = "manager", target = "manager")
+    @Mapping(source = "phoneNumber", target = "phoneNumber")
+
     UserDto toDto(User user);
 
     @Mapping(source = "role", target = "role")
     @Mapping(source = "department", target = "department")
     @Mapping(source = "manager", target = "manager")
+    @Mapping(source = "phoneNumber", target = "phoneNumber")
     User toEntity(UserDto userDto);
 }
