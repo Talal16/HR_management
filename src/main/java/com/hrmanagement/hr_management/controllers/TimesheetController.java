@@ -6,6 +6,7 @@ import com.hrmanagement.hr_management.services.TimesheetService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,8 +21,8 @@ public class TimesheetController {
     //create new timesheet
     @Operation(summary = "create a new timesheet")
     @PostMapping
-    public TimesheetDto createTimesheet(@RequestBody TimesheetDto timesheetDto) {
-        return timesheetService.createTimesheet(timesheetDto);
+    public ResponseEntity<TimesheetDto> createTimesheet(@RequestBody TimesheetDto timesheetDto) {
+        return ResponseEntity.status(201).body(timesheetService.createTimesheet(timesheetDto));
     }
 
     // get timesheet by id
