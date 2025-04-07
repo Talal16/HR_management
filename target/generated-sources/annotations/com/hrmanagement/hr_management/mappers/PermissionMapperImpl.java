@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-03-23T09:49:37+0200",
+    date = "2025-04-07T10:24:11+0200",
     comments = "version: 1.5.5.Final, compiler: javac, environment: Java 23.0.1 (Oracle Corporation)"
 )
 @Component
@@ -28,13 +28,12 @@ public class PermissionMapperImpl implements PermissionMapper {
         if ( permissionEntity.getId() != null ) {
             permissionDto.setId( permissionEntity.getId() );
         }
+        permissionDto.setName( permissionEntity.getName() );
         permissionDto.setUser( userMapper.toDto( permissionEntity.getUser() ) );
         permissionDto.setStartTime( permissionEntity.getStartTime() );
         permissionDto.setEndTime( permissionEntity.getEndTime() );
         permissionDto.setCreatedAt( permissionEntity.getCreatedAt() );
         permissionDto.setUpdatedAt( permissionEntity.getUpdatedAt() );
-        permissionDto.setStutas(permissionEntity.getStatus());
-        permissionDto.setName(permissionEntity.getName());
 
         return permissionDto;
     }
@@ -48,13 +47,12 @@ public class PermissionMapperImpl implements PermissionMapper {
         Permission permission = new Permission();
 
         permission.setId( permissionDto.getId() );
+        permission.setName( permissionDto.getName() );
         permission.setUser( userMapper.toEntity( permissionDto.getUser() ) );
         permission.setStartTime( permissionDto.getStartTime() );
         permission.setEndTime( permissionDto.getEndTime() );
         permission.setCreatedAt( permissionDto.getCreatedAt() );
         permission.setUpdatedAt( permissionDto.getUpdatedAt() );
-        permission.setStatus( permissionDto.getStutas() );
-        permission.setName( permissionDto.getName() );
 
         return permission;
     }

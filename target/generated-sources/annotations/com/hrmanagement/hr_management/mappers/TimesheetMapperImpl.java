@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2025-03-24T10:14:30+0200",
+    date = "2025-04-07T10:24:11+0200",
     comments = "version: 1.5.5.Final, compiler: javac, environment: Java 23.0.1 (Oracle Corporation)"
 )
 @Component
@@ -85,6 +85,7 @@ public class TimesheetMapperImpl implements TimesheetMapper {
         userDto.setName( user.getName() );
         userDto.setPassword( user.getPassword() );
         userDto.setEmail( user.getEmail() );
+        userDto.setPhoneNumber( user.getPhoneNumber() );
         userDto.setRole( roleToRoleDto( user.getRole() ) );
         userDto.setDepartment( departmentMapper.toDto( user.getDepartment() ) );
         userDto.setManager( userToUserDto( user.getManager() ) );
@@ -132,6 +133,7 @@ public class TimesheetMapperImpl implements TimesheetMapper {
         user.setId( userDto.getId() );
         user.setEmail( userDto.getEmail() );
         user.setName( userDto.getName() );
+        user.setPhoneNumber( userDto.getPhoneNumber() );
         user.setPassword( userDto.getPassword() );
         user.setRole( roleDtoToRole( userDto.getRole() ) );
         user.setDepartment( departmentMapper.toEntity( userDto.getDepartment() ) );
