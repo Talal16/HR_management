@@ -6,7 +6,9 @@ import com.hrmanagement.hr_management.mappers.ProjectMapper;
 import com.hrmanagement.hr_management.mappers.TimesheetMapper;
 import com.hrmanagement.hr_management.mappers.UserMapper;
 import com.hrmanagement.hr_management.models.Timesheet;
+import com.hrmanagement.hr_management.repositories.ProjectRepository;
 import com.hrmanagement.hr_management.repositories.TimesheetRepository;
+import com.hrmanagement.hr_management.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,6 +27,10 @@ public class TimesheetService {
     private UserMapper userMapper;
     @Autowired
     private ProjectMapper projectMapper;
+    @Autowired
+    private UserRepository userRepository;
+    @Autowired
+    private ProjectRepository projectRepository;
 
     public TimesheetDto createTimesheet(TimesheetDto timesheetDto) {
         Timesheet timesheet = timesheetMapper.toEntity(timesheetDto);
@@ -171,6 +177,44 @@ public class TimesheetService {
         return timesheetDtos;
     }
 
+
+    // start working on project means that no end date
+    public void startWorkingOnProject(long userId, long projectId) {
+        // check if the user is already working on the project
+        List<Timesheet> timesheets = timesheetRepository.findByUserIdAndProjectIdAndEndTime(userId, projectId, null);
+        if (!timesheets.isEmpty()) {
+            throw new RuntimeException("User is already working on this project");
+        }
+        // check if the user is already working on another project
+        List<Timesheet> timesheets1 = timesheetRepository.findByUserIdAndEndTime(userId, null);
+        if (!timesheets1.isEmpty()) {
+            throw new RuntimeException("User is already working on another project");
+        }
+
+        // create a new timesheet
+        Timesheet timesheet = new Timesheet();
+        timesheet.setUser(userRepository.getUserById(userId));
+        timesheet.setProject(projectRepository.getById(projectId));
+        timesheet.setStartTime(LocalDateTime.now());
+        timesheet.setEndTime(null);
+        timesheet.setCreatedAt(LocalDateTime.now());
+        timesheet.setUpdatedAt(LocalDateTime.now());
+        timesheetRepository.save(timesheet);
+    }
+    // start break means update the end time to the current time
+    public void endWorkingOnProject(long userId, long projectId) {
+        // check if the user is working on the project
+        List<Timesheet> timesheets = timesheetRepository.findByUserIdAndProjectIdAndEndTime(userId, projectId, null);
+        if (timesheets.isEmpty()) {
+            throw new RuntimeException("User is not working on this project");
+        }
+        // update the end time to the current time
+        Timesheet timesheet = timesheets.getFirst();
+        timesheet.setEndTime(LocalDateTime.now());
+        timesheet.setUpdatedAt(LocalDateTime.now());
+        timesheetRepository.save(timesheet);
+    }
+    // start work create new timesheet
 
 
 }

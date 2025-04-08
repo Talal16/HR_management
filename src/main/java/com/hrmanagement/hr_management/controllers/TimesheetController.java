@@ -55,7 +55,7 @@ public class TimesheetController {
         return ResponseEntity.ok(timesheetService.getAllTimesheets());
     }
 
-    //  services in details
+    //---------------------------------------------  statistics in details--------------------------------------
     @Operation(summary = "Get all timesheets by user ID")
     @GetMapping("/user/{userId}")
     public ResponseEntity<List<TimesheetDto>> getAllTimesheetsByUserId(@PathVariable Long userId) {
