@@ -64,6 +64,18 @@ public class ProjectService {
     }
 
 
+    //---------------------------------------------  statistics in details--------------------------------------
+   //  get  projects by userid
+    public List<ProjectDto> getAllProjectsByUserId(Long userId) {
+        List<Project> projects = projectRepository.findProjectByUserId(userId);
+        List<ProjectDto> projectsDtos = new ArrayList<>();
+        projects.forEach(project -> {
+            projectsDtos.add(projectMapper.toDto(project));
+        });
+        return projectsDtos;
+    }
 
+    // get projects for department - in Depth layer
 
+    //
 }
