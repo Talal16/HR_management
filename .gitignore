@@ -1,7 +1,44 @@
-### AL ###
-#Template for AL projects for Dynamics 365 Business Central
-#launch.json folder
+
+##############################
+## Java
+##############################
+.mtj.tmp/
 *.class
+*.jar
+*.war
+*.ear
+*.nar
+hs_err_pid*
+
+##############################
+## Maven
+##############################
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+pom.xml.bak
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+.mvn/wrapper/maven-wrapper.jar
+##############################
+## IntelliJ
+##############################
+out/
+.idea/
+.idea_modules/
+*.iml
+*.ipr
+*.iws
+
+##############################
+## OS X
+##############################
+.DS_Store
+
 .vscode/
 #Cache folder
 .alcache/
@@ -23,3 +60,5 @@ rad.json
 TestResults.xml
 
 *.drafts/
+.drafts/
+drafts/
