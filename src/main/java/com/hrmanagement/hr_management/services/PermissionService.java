@@ -63,5 +63,79 @@ public class PermissionService {
         });
         return permissionDtos;
     }
+    //-----------------------------------------------------------------
+    // get all permissions by user id
+    public List<PermissionDto> getAllPermissionsByUserId(Long userId) {
+        List<Permission> permissions = permissionRepository.findAllByUserId(userId);
+        List<PermissionDto> permissionDtos = new ArrayList<>();
+        permissions.forEach(permission -> {
+            System.out.println("start get all"+permission+"end");
+            permissionDtos.add(permissionMapper.toDto(permission));
+        });
+        return permissionDtos;
+    }
+
+    // get all permissions by status
+    public List<PermissionDto> getAllPermissionsByStatus(String status) {
+        List<Permission> permissions = permissionRepository.findAllByStatus(status);
+        List<PermissionDto> permissionDtos = new ArrayList<>();
+        permissions.forEach(permission -> {
+            System.out.println("start get all"+permission+"end");
+            permissionDtos.add(permissionMapper.toDto(permission));
+        });
+        return permissionDtos;
+    }
+    // get all permissions by user id and status
+    public List<PermissionDto> getAllPermissionsByUserIdAndStatus(Long userId, String status) {
+        List<Permission> permissions = permissionRepository.findAllByUserIdAndStatus(userId, status);
+        List<PermissionDto> permissionDtos = new ArrayList<>();
+        permissions.forEach(permission -> {
+            System.out.println("start get all"+permission+"end");
+            permissionDtos.add(permissionMapper.toDto(permission));
+        });
+        return permissionDtos;
+    }
+    // get all permissions by user id and status and start time between
+    public List<PermissionDto> getAllPermissionsByUserIdAndStatusAndStartTimeBetween(Long userId, String status, String startTime, String endTime) {
+        List<Permission> permissions = permissionRepository.findAllByUserIdAndStatusAndStartTimeBetween(userId, status, startTime, endTime);
+        List<PermissionDto> permissionDtos = new ArrayList<>();
+        permissions.forEach(permission -> {
+            System.out.println("start get all"+permission+"end");
+            permissionDtos.add(permissionMapper.toDto(permission));
+        });
+        return permissionDtos;
+    }
+    // get all permissions by user id and start time between
+    public List<PermissionDto> getAllPermissionsByUserIdAndStartTimeBetween(Long userId, String startTime, String endTime) {
+        List<Permission> permissions = permissionRepository.findAllByUserIdAndStartTimeBetween(userId, startTime, endTime);
+        List<PermissionDto> permissionDtos = new ArrayList<>();
+        permissions.forEach(permission -> {
+            System.out.println("start get all"+permission+"end");
+            permissionDtos.add(permissionMapper.toDto(permission));
+        });
+        return permissionDtos;
+    }
+    // get all permissions by status and start time between
+    public List<PermissionDto> getAllPermissionsByStatusAndStartTimeBetween(String status, String startTime, String endTime) {
+        List<Permission> permissions = permissionRepository.findAllByStatusAndStartTimeBetween(status, startTime, endTime);
+        List<PermissionDto> permissionDtos = new ArrayList<>();
+        permissions.forEach(permission -> {
+            System.out.println("start get all"+permission+"end");
+            permissionDtos.add(permissionMapper.toDto(permission));
+        });
+        return permissionDtos;
+    }
+    // get all permissions by start time between
+    public List<PermissionDto> getAllPermissionsByStartTimeBetween(String startTime, String endTime) {
+        List<Permission> permissions = permissionRepository.findAllByStartTimeBetween(startTime, endTime);
+        List<PermissionDto> permissionDtos = new ArrayList<>();
+        permissions.forEach(permission -> {
+            System.out.println("start get all"+permission+"end");
+            permissionDtos.add(permissionMapper.toDto(permission));
+        });
+        return permissionDtos;
+    }
+
+
 
 }
