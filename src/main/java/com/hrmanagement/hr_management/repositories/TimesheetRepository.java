@@ -17,11 +17,10 @@ public interface TimesheetRepository extends JpaRepository<Timesheet, Long> {
     List<Timesheet> findByUserIdAndProjectId(Long userId, Long projectId);
     List<Timesheet> findByUserIdAndStartTime(Long userId, LocalDateTime startTime);
     List<Timesheet> findByUserIdAndEndTime(Long userId, LocalDateTime endTime);
-    List<Timesheet> findTimesheetByuserIdAndstartTimeBetween(long userId, LocalDateTime startTimeBegin, LocalDateTime startTimeEnd);
+    List<Timesheet> findByUserIdAndStartTimeBetween(Long userId, LocalDateTime startTimeBegin, LocalDateTime startTimeEnd);
 
 //findByProjectIdAndStartTime
     List<Timesheet> findByProjectIdAndStartTime(Long projectId, LocalDateTime startTime);
-    List<Timesheet> findByProjectIdAndEndTime(Long projectId, LocalDateTime endTime);
     List<Timesheet> findByUserIdAndProjectIdAndStartTime(Long userId, Long projectId, LocalDateTime startTime);
     List<Timesheet> findByUserIdAndProjectIdAndEndTime(Long userId, Long projectId, LocalDateTime endTime);
 

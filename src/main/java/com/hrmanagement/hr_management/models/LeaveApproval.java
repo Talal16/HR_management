@@ -6,7 +6,6 @@ import jakarta.persistence.*;
 
 @Entity
 @Data
-
 @Table(name = "leave_approvals")
 public class LeaveApproval {
     @Id

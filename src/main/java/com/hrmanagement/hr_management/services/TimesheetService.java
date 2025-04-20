@@ -1,6 +1,4 @@
 package com.hrmanagement.hr_management.services;
-
-
 import com.hrmanagement.hr_management.dto.TimesheetDto;
 import com.hrmanagement.hr_management.mappers.ProjectMapper;
 import com.hrmanagement.hr_management.mappers.TimesheetMapper;
@@ -46,7 +44,6 @@ public class TimesheetService {
     }
 
     //update timesheet
-
     public TimesheetDto updateTimesheet(long id, TimesheetDto timesheetDto) {
         Timesheet timesheet = timesheetRepository.findById(id).get();
         timesheet.setId(id);
@@ -69,7 +66,6 @@ public class TimesheetService {
         List <TimesheetDto> timesheetDtos = new ArrayList<>();
         timesheets.forEach(timesheet -> {
             timesheetDtos.add(timesheetMapper.toDto(timesheet));
-
         });
         return timesheetDtos;
     }
@@ -149,7 +145,7 @@ public class TimesheetService {
 
     // get timesheet by userId and start time Range
     public List<TimesheetDto> getAllTimesheetsByUserIdAndStartTimeRange(long userId, LocalDateTime startTimeBegin, LocalDateTime startTimeEnd) {
-        List <Timesheet> timesheets = timesheetRepository.findTimesheetByuserIdAndstartTimeBetween(userId, startTimeBegin, startTimeEnd);
+        List <Timesheet> timesheets = timesheetRepository.findByUserIdAndStartTimeBetween(userId, startTimeBegin, startTimeEnd);
         List <TimesheetDto> timesheetDtos = new ArrayList<>();
         timesheets.forEach(timesheet -> {
             timesheetDtos.add(timesheetMapper.toDto(timesheet));
@@ -201,6 +197,7 @@ public class TimesheetService {
         timesheet.setUpdatedAt(LocalDateTime.now());
         timesheetRepository.save(timesheet);
     }
+
     // start break means update the end time to the current time
     public void endWorkingOnProject(long userId, long projectId) {
         // check if the user is working on the project

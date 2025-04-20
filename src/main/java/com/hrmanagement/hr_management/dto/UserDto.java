@@ -3,16 +3,12 @@ package com.hrmanagement.hr_management.dto;
 
 import jakarta.validation.constraints.*;
 import lombok.Data;
-import lombok.Getter;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-@Getter
 @Data
 public class UserDto {
-
-
     private Long id;
 
     @NotNull(message = "Name is required")
@@ -40,7 +36,7 @@ public class UserDto {
 
     private LocalDate hireDate;
 
-     @NotBlank(message = "created time is required")
+    @NotBlank(message = "created time is required")
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
