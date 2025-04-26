@@ -4,7 +4,6 @@ import com.hrmanagement.hr_management.dto.LeaveRequestDto;
 import com.hrmanagement.hr_management.mappers.LeaveRequestMapper;
 import com.hrmanagement.hr_management.mappers.LeaveTypeMapper;
 import com.hrmanagement.hr_management.models.LeaveRequest;
-import com.hrmanagement.hr_management.models.LeaveType;
 import com.hrmanagement.hr_management.repositories.LeaveRequestRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -66,5 +65,81 @@ public class LeaveRequestService {
 
         return leaveRequestDtos;
     }
+
+    // get all LeaveRequests by employee id
+    public List<LeaveRequestDto> getAllLeaveRequestsByEmployeeId(Long employeeId) {
+        List<LeaveRequest> leaveRequests = leaveRequestRepository.findByEmployeeId(employeeId);
+        List<LeaveRequestDto> leaveRequestDtos = new ArrayList<>();
+        leaveRequests.forEach(leaveRequest -> leaveRequestDtos.add(leaveRequestMapper.toDto(leaveRequest)));
+
+        return leaveRequestDtos;
+    }
+    // get all LeaveRequests by leaveType id
+    public List<LeaveRequestDto> getAllLeaveRequestsByLeaveTypeId(Long leaveTypeId) {
+        List<LeaveRequest> leaveRequests = leaveRequestRepository.findByLeaveTypeId(leaveTypeId);
+        List<LeaveRequestDto> leaveRequestDtos = new ArrayList<>();
+        leaveRequests.forEach(leaveRequest -> leaveRequestDtos.add(leaveRequestMapper.toDto(leaveRequest)));
+
+        return leaveRequestDtos;
+    }
+    // get all LeaveRequests by status
+    public List<LeaveRequestDto> getAllLeaveRequestsByStatus(String status) {
+        List<LeaveRequest> leaveRequests = leaveRequestRepository.findByStatus(status);
+        List<LeaveRequestDto> leaveRequestDtos = new ArrayList<>();
+        leaveRequests.forEach(leaveRequest -> leaveRequestDtos.add(leaveRequestMapper.toDto(leaveRequest)));
+
+        return leaveRequestDtos;
+    }
+    // get all LeaveRequests by start date
+    public List<LeaveRequestDto> getAllLeaveRequestsByStartDate(LocalDateTime startDate) {
+        List<LeaveRequest> leaveRequests = leaveRequestRepository.findByStartDate(startDate);
+        List<LeaveRequestDto> leaveRequestDtos = new ArrayList<>();
+        leaveRequests.forEach(leaveRequest -> leaveRequestDtos.add(leaveRequestMapper.toDto(leaveRequest)));
+
+        return leaveRequestDtos;
+    }
+    // get all LeaveRequests by end date
+    public List<LeaveRequestDto> getAllLeaveRequestsByEndDate(LocalDateTime endDate) {
+        List<LeaveRequest> leaveRequests = leaveRequestRepository.findByEndDate(endDate);
+        List<LeaveRequestDto> leaveRequestDtos = new ArrayList<>();
+        leaveRequests.forEach(leaveRequest -> leaveRequestDtos.add(leaveRequestMapper.toDto(leaveRequest)));
+
+        return leaveRequestDtos;
+    }
+    // get all LeaveRequests by created date
+    public List<LeaveRequestDto> getAllLeaveRequestsByCreatedDate(LocalDateTime createdDate) {
+        List<LeaveRequest> leaveRequests = leaveRequestRepository.findByCreatedAt(createdDate);
+        List<LeaveRequestDto> leaveRequestDtos = new ArrayList<>();
+        leaveRequests.forEach(leaveRequest -> leaveRequestDtos.add(leaveRequestMapper.toDto(leaveRequest)));
+
+        return leaveRequestDtos;
+    }
+    // get leaveRequests by employee id and leaveType id
+    public List<LeaveRequestDto> getAllLeaveRequestsByEmployeeIdAndLeaveTypeId(Long employeeId, Long leaveTypeId) {
+        List<LeaveRequest> leaveRequests = leaveRequestRepository.findByEmployeeIdAndLeaveTypeId(employeeId, leaveTypeId);
+        List<LeaveRequestDto> leaveRequestDtos = new ArrayList<>();
+        leaveRequests.forEach(leaveRequest -> leaveRequestDtos.add(leaveRequestMapper.toDto(leaveRequest)));
+
+        return leaveRequestDtos;
+    }
+
+    // get leaveRequest by employee id and status
+    public List<LeaveRequestDto> getAllLeaveRequestsByEmployeeIdAndStatus(Long employeeId, String status) {
+        List<LeaveRequest> leaveRequests = leaveRequestRepository.findByEmployeeIdAndStatus(employeeId, status);
+        List<LeaveRequestDto> leaveRequestDtos = new ArrayList<>();
+        leaveRequests.forEach(leaveRequest -> leaveRequestDtos.add(leaveRequestMapper.toDto(leaveRequest)));
+
+        return leaveRequestDtos;
+    }
+    // get leaveRequest by employee id and start date
+    public List<LeaveRequestDto> getAllLeaveRequestsByEmployeeIdAndStartDate(Long employeeId, LocalDateTime startDate) {
+        List<LeaveRequest> leaveRequests = leaveRequestRepository.findByEmployeeIdAndStartDate(employeeId, startDate);
+        List<LeaveRequestDto> leaveRequestDtos = new ArrayList<>();
+        leaveRequests.forEach(leaveRequest -> leaveRequestDtos.add(leaveRequestMapper.toDto(leaveRequest)));
+
+        return leaveRequestDtos;
+    }
+
+
 
 }

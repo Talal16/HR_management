@@ -52,6 +52,59 @@ public class LeaveApprovalService {
         );
         return leaveApprovalDtos;
     }
+    //Get LeaveApproval by LeaveRequestId
+    public LeaveApprovalDto getLeaveApprovalByLeaveRequestId(Long leaveRequestId) {
+        LeaveApproval leaveApproval = leaveApprovalRepository.findByLeaveRequestId(leaveRequestId);
+        return leaveApprovalMapper.toDto(leaveApproval);
+    }
+    //Get LeaveApproval by EmployeeId
+    public List<LeaveApprovalDto> getLeaveApprovalByEmployeeId(Long employeeId) {
+        List<LeaveApproval> leaveApprovals = leaveApprovalRepository.findByEmployeeId(employeeId);
+        List<LeaveApprovalDto> leaveApprovalDtos = new ArrayList<>();
+        leaveApprovals.forEach(
+                leaveApproval -> leaveApprovalDtos.add(leaveApprovalMapper.toDto(leaveApproval))
+        );
+        return leaveApprovalDtos;
+    }
+    //Get LeaveApproval by ManagerId
+    public List<LeaveApprovalDto> getLeaveApprovalByManagerId(Long managerId) {
+        List<LeaveApproval> leaveApprovals = leaveApprovalRepository.findByManagerId(managerId);
+        List<LeaveApprovalDto> leaveApprovalDtos = new ArrayList<>();
+        leaveApprovals.forEach(
+                leaveApproval -> leaveApprovalDtos.add(leaveApprovalMapper.toDto(leaveApproval))
+        );
+        return leaveApprovalDtos;
+    }
+    //Get LeaveApproval by Status
+    public List<LeaveApprovalDto> getLeaveApprovalByStatus(String status) {
+        List<LeaveApproval> leaveApprovals = leaveApprovalRepository.findByStatus(status);
+        List<LeaveApprovalDto> leaveApprovalDtos = new ArrayList<>();
+        leaveApprovals.forEach(
+                leaveApproval -> leaveApprovalDtos.add(leaveApprovalMapper.toDto(leaveApproval))
+        );
+        return leaveApprovalDtos;
+    }
+    //Get LeaveApproval by LeaveTypeId
+    public List<LeaveApprovalDto> getLeaveApprovalByLeaveTypeId(Long leaveTypeId) {
+        List<LeaveApproval> leaveApprovals = leaveApprovalRepository.findByLeaveTypeId(leaveTypeId);
+        List<LeaveApprovalDto> leaveApprovalDtos = new ArrayList<>();
+        leaveApprovals.forEach(
+                leaveApproval -> leaveApprovalDtos.add(leaveApprovalMapper.toDto(leaveApproval))
+        );
+        return leaveApprovalDtos;
+    }
+    //Get LeaveApproval by LeaveRequestId and EmployeeId
+    public LeaveApprovalDto getLeaveApprovalByLeaveRequestIdAndEmployeeId(Long leaveRequestId, Long employeeId) {
+        LeaveApproval leaveApproval = leaveApprovalRepository.findByLeaveRequestIdAndEmployeeId(leaveRequestId, employeeId);
+        return leaveApprovalMapper.toDto(leaveApproval);
+    }
+    //Get LeaveApproval by LeaveRequestId and ManagerId
+    public LeaveApprovalDto getLeaveApprovalByLeaveRequestIdAndManagerId(Long leaveRequestId, Long managerId) {
+        LeaveApproval leaveApproval = leaveApprovalRepository.findByLeaveRequestIdAndManagerId(leaveRequestId, managerId);
+        return leaveApprovalMapper.toDto(leaveApproval);
+    }
+
+
 
 
 }

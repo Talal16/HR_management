@@ -50,5 +50,7 @@ public class LeaveTypeService {
         leaveTypes.forEach(leaveType -> leaveTypeDtos.add(leaveTypeMapper.toDto(leaveType)));
         return leaveTypeDtos;
     }
+
+
 }
 
