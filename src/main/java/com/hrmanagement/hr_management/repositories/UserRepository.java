@@ -15,14 +15,14 @@ package com.hrmanagement.hr_management.repositories;
 
      @Query("SELECT i FROM User u WHERE u.id = :userId")
      User getUserById(@Param("userid") Long userId);
- 
+
      @Query("SELECT u FROM User u WHERE u.department.id = :departmentId")
      List<User> findUsersByDepartmentId(@Param("departmentId") Long departmentId);
 
      @Query("SELECT u FROM User u WHERE u.email = :email")
      User findUserByEmail(@Param("email") String email);
 
-     @Query("SELECT u FROM User u WHERE u.manager.id = :managerId")
+     @Query("SELECT u FROM User u WHERE u.anager.id = :managerId")
      List<User> findUsersByManagerId(@Param("managerId") Long managerId);
 
      @Query("SELECT u FROM User u WHERE u.role.id = :roleId")
