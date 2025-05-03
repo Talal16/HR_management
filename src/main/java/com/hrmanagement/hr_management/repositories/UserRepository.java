@@ -22,7 +22,7 @@ package com.hrmanagement.hr_management.repositories;
      @Query("SELECT u FROM User u WHERE u.email = :email")
      User findUserByEmail(@Param("email") String email);
 
-     @Query("SELECT u FROM User u WHERE u.anager.id = :managerId")
+     @Query("SELECT u FROM User u WHERE u.manager.id = :managerId")
      List<User> findUsersByManagerId(@Param("managerId") Long managerId);
 
      @Query("SELECT u FROM User u WHERE u.role.id = :roleId")
