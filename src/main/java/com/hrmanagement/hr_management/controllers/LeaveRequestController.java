@@ -45,11 +45,42 @@ public class LeaveRequestController {
 
     // get all leave requests
     @Operation(summary = "get all leave requests")
-
     @GetMapping
     public List<LeaveRequestDto> getAllLeaveRequests() {
         return leaveRequestService.getAllLeaveRequests();
     }
 
+    // get all leave requests by user id
+    @Operation(summary = "get all leave requests by user id")
+    @GetMapping("/user/{userId}")
+    public List<LeaveRequestDto> getAllLeaveRequestsByUserId(@PathVariable Long userId) {
+        return leaveRequestService.getAllLeaveRequestsByEmployeeId(userId);
+    }
+    // get all leave requests by user id and status
+    @Operation(summary = "get all leave requests by user id and status")
+    @GetMapping("/user/{userId}/status/{status}")
+    public List<LeaveRequestDto> getAllLeaveRequestsByUserIdAndStatus(@PathVariable Long userId, @PathVariable String status) {
+        return leaveRequestService.getAllLeaveRequestsByUserIdAndStatus(userId, status);
+    }
+    // get all leave requests by status
+    @Operation(summary = "get all leave requests by status")
+    @GetMapping("/status/{status}")
+    public List<LeaveRequestDto> getAllLeaveRequestsByStatus(@PathVariable String status) {
+        return leaveRequestService.getAllLeaveRequestsByStatus(status);
+    }/*
+    // approve leave request
+    @Operation(summary = "approve leave request")
+    @PutMapping("/approve/{id}")
+    public LeaveRequestDto approveLeaveRequest(@PathVariable Long id) {
+        return leaveRequestService.approveLeaveRequest(id);
+    }
+    // reject leave request
+    @Operation(summary = "reject leave request")
+    @PutMapping("/reject/{id}")
+    public LeaveRequestDto rejectLeaveRequest(@PathVariable Long id) {
+        return leaveRequestService.rejectLeaveRequest(id);
+    }
+
+*/
 
 }

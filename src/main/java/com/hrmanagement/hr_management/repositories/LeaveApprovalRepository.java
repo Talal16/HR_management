@@ -12,7 +12,6 @@ public interface LeaveApprovalRepository extends JpaRepository<LeaveApproval, Lo
     LeaveApproval findByLeaveRequestId(Long leaveRequestId);
     List<LeaveApproval> findByManagerId(Long managerId);
     List<LeaveApproval> findByStatus(String status);
-    List<LeaveApproval> findByLeaveTypeId(Long leaveTypeId);
     LeaveApproval findByLeaveRequestIdAndEmployeeId(Long leaveRequestId, Long employeeId);
     LeaveApproval findByLeaveRequestIdAndManagerId(Long leaveRequestId, Long managerId);
 

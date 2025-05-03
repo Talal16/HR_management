@@ -84,15 +84,6 @@ public class LeaveApprovalService {
         );
         return leaveApprovalDtos;
     }
-    //Get LeaveApproval by LeaveTypeId
-    public List<LeaveApprovalDto> getLeaveApprovalByLeaveTypeId(Long leaveTypeId) {
-        List<LeaveApproval> leaveApprovals = leaveApprovalRepository.findByLeaveTypeId(leaveTypeId);
-        List<LeaveApprovalDto> leaveApprovalDtos = new ArrayList<>();
-        leaveApprovals.forEach(
-                leaveApproval -> leaveApprovalDtos.add(leaveApprovalMapper.toDto(leaveApproval))
-        );
-        return leaveApprovalDtos;
-    }
     //Get LeaveApproval by LeaveRequestId and EmployeeId
     public LeaveApprovalDto getLeaveApprovalByLeaveRequestIdAndEmployeeId(Long leaveRequestId, Long employeeId) {
         LeaveApproval leaveApproval = leaveApprovalRepository.findByLeaveRequestIdAndEmployeeId(leaveRequestId, employeeId);

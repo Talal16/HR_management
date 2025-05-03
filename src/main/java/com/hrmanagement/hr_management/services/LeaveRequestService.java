@@ -114,8 +114,8 @@ public class LeaveRequestService {
 
         return leaveRequestDtos;
     }
-    // get leaveRequests by employee id and leaveType id
-    public List<LeaveRequestDto> getAllLeaveRequestsByEmployeeIdAndLeaveTypeId(Long employeeId, Long leaveTypeId) {
+    // get leaveRequests by User id and leaveType id
+    public List<LeaveRequestDto> getAllLeaveRequestsByUserIdAndLeaveTypeId(Long employeeId, Long leaveTypeId) {
         List<LeaveRequest> leaveRequests = leaveRequestRepository.findByEmployeeIdAndLeaveTypeId(employeeId, leaveTypeId);
         List<LeaveRequestDto> leaveRequestDtos = new ArrayList<>();
         leaveRequests.forEach(leaveRequest -> leaveRequestDtos.add(leaveRequestMapper.toDto(leaveRequest)));
@@ -124,7 +124,7 @@ public class LeaveRequestService {
     }
 
     // get leaveRequest by employee id and status
-    public List<LeaveRequestDto> getAllLeaveRequestsByEmployeeIdAndStatus(Long employeeId, String status) {
+    public List<LeaveRequestDto> getAllLeaveRequestsByUserIdAndStatus(Long employeeId, String status) {
         List<LeaveRequest> leaveRequests = leaveRequestRepository.findByEmployeeIdAndStatus(employeeId, status);
         List<LeaveRequestDto> leaveRequestDtos = new ArrayList<>();
         leaveRequests.forEach(leaveRequest -> leaveRequestDtos.add(leaveRequestMapper.toDto(leaveRequest)));
@@ -132,14 +132,29 @@ public class LeaveRequestService {
         return leaveRequestDtos;
     }
     // get leaveRequest by employee id and start date
-    public List<LeaveRequestDto> getAllLeaveRequestsByEmployeeIdAndStartDate(Long employeeId, LocalDateTime startDate) {
+    public List<LeaveRequestDto> getAllLeaveRequestsByUserIdAndStartDate(Long employeeId, LocalDateTime startDate) {
         List<LeaveRequest> leaveRequests = leaveRequestRepository.findByEmployeeIdAndStartDate(employeeId, startDate);
         List<LeaveRequestDto> leaveRequestDtos = new ArrayList<>();
         leaveRequests.forEach(leaveRequest -> leaveRequestDtos.add(leaveRequestMapper.toDto(leaveRequest)));
 
         return leaveRequestDtos;
     }
+/*
+    //rejectLeaveRequest
+    public LeaveRequestDto rejectLeaveRequest(Long id) {
+        LeaveRequest leaveRequest = leaveRequestRepository.findById(id).orElseThrow(() -> new RuntimeException("LeaveRequest not found"));
+        leaveRequest.setStatus("rejected");
+        leaveRequest.setUpdatedAt(LocalDateTime.now());
 
+        return leaveRequestMapper.toDto(leaveRequestRepository.save(leaveRequest));
+    }
 
+    public LeaveRequestDto approveLeaveRequest(Long id) {
+        LeaveRequest leaveRequest = leaveRequestRepository.findById(id).orElseThrow(() -> new RuntimeException("LeaveRequest not found"));
+        leaveRequest.setStatus("approved");
+        leaveRequest.setUpdatedAt(LocalDateTime.now());
 
+        return leaveRequestMapper.toDto(leaveRequestRepository.save(leaveRequest));
+    }
+*/
 }
