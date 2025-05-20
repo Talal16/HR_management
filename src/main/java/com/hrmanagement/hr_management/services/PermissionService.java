@@ -96,7 +96,7 @@ public class PermissionService {
         return permissionDtos;
     }
     // get all permissions by user id and status and start time between
-    public List<PermissionDto> getAllPermissionsByUserIdAndStatusAndStartTimeBetween(Long userId, String status, String startTime, String endTime) {
+    public List<PermissionDto> getAllPermissionsByUserIdAndStatusAndStartTimeBetween(Long userId, String status, LocalDateTime  startTime, LocalDateTime endTime) {
         List<Permission> permissions = permissionRepository.findAllByUserIdAndStatusAndStartTimeBetween(userId, status, startTime, endTime);
         List<PermissionDto> permissionDtos = new ArrayList<>();
         permissions.forEach(permission -> {
@@ -106,7 +106,7 @@ public class PermissionService {
         return permissionDtos;
     }
     // get all permissions by user id and start time between
-    public List<PermissionDto> getAllPermissionsByUserIdAndStartTimeBetween(Long userId, String startTime, String endTime) {
+    public List<PermissionDto> getAllPermissionsByUserIdAndStartTimeBetween(Long userId, LocalDateTime startTime, LocalDateTime endTime) {
         List<Permission> permissions = permissionRepository.findAllByUserIdAndStartTimeBetween(userId, startTime, endTime);
         List<PermissionDto> permissionDtos = new ArrayList<>();
         permissions.forEach(permission -> {
@@ -116,7 +116,7 @@ public class PermissionService {
         return permissionDtos;
     }
     // get all permissions by status and start time between
-    public List<PermissionDto> getAllPermissionsByStatusAndStartTimeBetween(String status, String startTime, String endTime) {
+    public List<PermissionDto> getAllPermissionsByStatusAndStartTimeBetween(String status, LocalDateTime startTime, LocalDateTime endTime) {
         List<Permission> permissions = permissionRepository.findAllByStatusAndStartTimeBetween(status, startTime, endTime);
         List<PermissionDto> permissionDtos = new ArrayList<>();
         permissions.forEach(permission -> {
@@ -126,7 +126,7 @@ public class PermissionService {
         return permissionDtos;
     }
     // get all permissions by start time between
-    public List<PermissionDto> getAllPermissionsByStartTimeBetween(String startTime, String endTime) {
+    public List<PermissionDto> getAllPermissionsByStartTimeBetween(LocalDateTime startTime, LocalDateTime endTime) {
         List<Permission> permissions = permissionRepository.findAllByStartTimeBetween(startTime, endTime);
         List<PermissionDto> permissionDtos = new ArrayList<>();
         permissions.forEach(permission -> {

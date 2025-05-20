@@ -41,7 +41,6 @@ public class LeaveApprovalController {
     // delete leave approval
     @Operation(summary = "delete leave approval")
     @DeleteMapping("/{id}")
-
     public void deleteLeaveApproval(@PathVariable Long id) {
         leaveApprovalService.deleteLeaveApproval(id);
     }

@@ -5,6 +5,8 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDateTime;
 import java.util.List;
 import com.hrmanagement.hr_management.services.PermissionService;
 import java.util.List;
@@ -72,25 +74,25 @@ public class PermissionController {
     //get all permissions by user id and start time
     @Operation(summary = "get all permissions by user id and start time")
     @GetMapping("/user/{userId}/startTime/{startTime}/endTime/{endTime}")
-    public List<PermissionDto> getAllPermissionsByUserIdAndStartTimeBetween(@PathVariable Long userId, @PathVariable String startTime, @PathVariable String endTime) {
+    public List<PermissionDto> getAllPermissionsByUserIdAndStartTimeBetween(@PathVariable Long userId, @PathVariable LocalDateTime startTime, @PathVariable LocalDateTime endTime) {
         return permissionService.getAllPermissionsByUserIdAndStartTimeBetween(userId, startTime, endTime);
     }
     //get all permissions by user id and status and start time
     @Operation(summary = "get all permissions by user id and status and start time")
     @GetMapping("/user/{userId}/status/{status}/startTime/{startTime}/endTime/{endTime}")
-    public List<PermissionDto> getAllPermissionsByUserIdAndStatusAndStartTimeBetween(@PathVariable Long userId, @PathVariable String status, @PathVariable String startTime, @PathVariable String endTime) {
+    public List<PermissionDto> getAllPermissionsByUserIdAndStatusAndStartTimeBetween(@PathVariable Long userId, @PathVariable String status, @PathVariable LocalDateTime startTime, @PathVariable LocalDateTime endTime) {
         return permissionService.getAllPermissionsByUserIdAndStatusAndStartTimeBetween(userId, status, startTime, endTime);
     }
     //get all permissions by status and start time
     @Operation(summary = "get all permissions by status and start time")
     @GetMapping("/status/{status}/startTime/{startTime}/endTime/{endTime}")
-    public List<PermissionDto> getAllPermissionsByStatusAndStartTimeBetween(@PathVariable String status, @PathVariable String startTime, @PathVariable String endTime) {
+    public List<PermissionDto> getAllPermissionsByStatusAndStartTimeBetween(@PathVariable String status, @PathVariable LocalDateTime startTime, @PathVariable LocalDateTime endTime) {
         return permissionService.getAllPermissionsByStatusAndStartTimeBetween(status, startTime, endTime);
     }
     //get all permissions by start time
     @Operation(summary = "get all permissions by start time")
     @GetMapping("/startTime/{startTimeBegin}/endTime/{startTimeEnd}")
-    public List<PermissionDto> getAllPermissionsByStartTimeBetween(@PathVariable String startTime, @PathVariable String endTime) {
+    public List<PermissionDto> getAllPermissionsByStartTimeBetween(@PathVariable LocalDateTime startTime, @PathVariable LocalDateTime endTime) {
         return permissionService.getAllPermissionsByStartTimeBetween(startTime, endTime);
     }
 
